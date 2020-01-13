@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/etc-svc-front-hunan/etc-svc-front-hunan.iml" filepath="$PROJECT_DIR$/etc-svc-front-hunan/etc-svc-front-hunan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/etc-svc-front-hunan-expose/etc-svc-front-hunan-expose.iml" filepath="$PROJECT_DIR$/etc-svc-front-hunan-expose/etc-svc-front-hunan-expose.iml" />
+      <module fileurl="file://$PROJECT_DIR$/etc-svc-front-hunan-parent.iml" filepath="$PROJECT_DIR$/etc-svc-front-hunan-parent.iml" />
+    </modules>
+  </component>
+</project>

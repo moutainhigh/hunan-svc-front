@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cn.trawe.etc</groupId>
+        <artifactId>etc-svc-front-hunan-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>etc-svc-front-hunan</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <env>DEV</env>
+        <mapper.version>3.4.0</mapper.version>
+        <maven.compile.source>1.8</maven.compile.source>
+        <maven.compile.target>1.8</maven.compile.target>
+    </properties>
+
+    <profiles>
+        <profile>
+            <!-- 开发环境 -->
+            <id>DEV</id>
+            <properties>
+                <!--<twp-eureka-url>http://localhost:18000/eureka/</twp-eureka-url>-->
+                <twp-meta-server-url>http://192.168.6.38:8080,http://192.168.6.39:8080</twp-meta-server-url>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!-- 测试环境 -->
+            <id>FAT</id>
+            <properties>
+                <!--<twp-eureka-url>http://192.168.6.232:18000/eureka/,http://192.168.6.233:18000/eureka/</twp-eureka-url>-->
+                <twp-meta-server-url>http://192.168.6.4:8080</twp-meta-server-url>
+            </properties>
+        </profile>
+        <profile>
+            <!-- 预发环境 -->
+            <id>UAT</id>
+            <properties>
+                <!--<twp-eureka-url>http://192.168.6.232:18000/eureka/,http://192.168.6.233:18000/eureka/</twp-eureka-url>-->
+                <twp-meta-server-url>http://172.18.2.124:8080</twp-meta-server-url>
+            </properties>
+        </profile>
+        <profile>
+            <!-- 生产环境 湖南网发平台-->
+            <id>PRO</id>
+            <properties>
+                <twp-meta-server-url>http://192.168.96.197:8080</twp-meta-server-url>
+                <env>PRO</env>
+            </properties>
+        </profile>
+        <profile>
+            <!-- 网发环境 湖南网发测试环境 -->
+            <id>LPT</id>
+            <properties>
+                <twp-meta-server-url>http://192.168.6.95:8080</twp-meta-server-url>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+			<groupId>cn.trawe.pay</groupId>
+			<artifactId>tw-lib-easyorm-dao</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
+			<exclusions>
+                <exclusion>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+			
+		</dependency>
+        <dependency>
+            <groupId>cn.trawe.pay</groupId>
+            <artifactId>etc-core-publish-expose</artifactId>
+			<version>1.0.2-NP-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+	        <groupId>cn.trawe.etc</groupId>
+			<artifactId>etc-svc-front-hunan-expose</artifactId>
+	  		<version>0.0.2-SNAPSHOT</version>
+  		</dependency>
+        <!-- <dependency>
+            <groupId>cn.trawe.pay</groupId>
+            <artifactId>tw-lib-easyorm-dao</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+ -->        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>3.7.73.ALL</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.trawe.pay</groupId>
+            <artifactId>etc-core-etc-user-expose</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun.openservices</groupId>
+            <artifactId>ons-client</artifactId>
+            <version>1.8.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-xml-provider</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ptc</groupId>
+            <artifactId>ptc-board-flowlimit-client</artifactId>
+            <version>0.0.2-SNAPSHOT</version>
+        </dependency>
+         <!-- swagger -->
+       <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+      <!--   <dependency>
+            <groupId>cn.trawe.pay</groupId>
+            <artifactId>tw-lib-rocketmq</artifactId>
+            <version>1.1.0-SNAPSHOT</version>
+        </dependency> -->
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <!--<version>4.5.6</version> -->
+		</dependency>
+		 <!--  <dependency>
+     <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.4</version>
+      <classifier>jdk15</classifier>
+    </dependency> -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>etc-svc-front-hunan</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <configuration>
+                        <encoding>utf-8</encoding>
+                        <useDefaultDelimiters>true</useDefaultDelimiters>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.11</version>
+                <configuration>
+                    <imageName>${project.artifactId}</imageName>
+                    <imageTags>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
+                    <forceTags>true</forceTags>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
