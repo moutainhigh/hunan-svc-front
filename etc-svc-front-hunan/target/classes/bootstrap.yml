@@ -1,9 +1,0 @@
-apollo:
-  bootstrap:
-    enabled: true   #注入默认application namespace的配置示例
-    namespaces: netpub-eureka-client,netpub-redis-config,netpub-db-config,etc_hunan_order_sync,netpub-front-hunan
-  meta: http://192.168.6.38:8080,http://192.168.6.39:8080
-
-app:
-  #应用的身份信息，如果服务暂时没有私有配置，直接指定公共配置的应用id：twp-pay-pub-config
-  id: etc-netpub-config

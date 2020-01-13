@@ -1,0 +1,33 @@
+
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.settings
+.springBeans
+.sts4-cache
+.settings/
+.metadata/
+RemoteSystemTempFiles/
+
+### IntelliJ IDEA ###
+.idea
+target
+.mvn
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+.DS_Store
+/.project
+/pom.xml
